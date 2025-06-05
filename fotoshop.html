@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Fotoshop — Онлайн Ретушь Фото</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      transition: background 2s ease;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { margin: 0; }
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+    h2 {
+      color: #444;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 8px 0;
+      border-bottom: 1px dashed #ccc;
+    }
+    .order-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 15px 0;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    .order-button:hover {
+      background-color: #555;
+      transform: scale(1.05);
+    }
+    form {
+      margin-top: 40px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 12px 25px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #555;
+      transform: scale(1.03);
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+    .contacts {
+      margin-top: 40px;
+      padding: 20px;
+      background: #f0f0f0;
+      border-radius: 8px;
+    }
+  </style>
+  <script>
+    function setBackgroundByTime() {
+      let now = new Date();
+      let moscowTime = new Date(now.getTime() + (3 * 60 - now.getTimezoneOffset()) * 60000);
+      let hour = moscowTime.getHours();
+      let body = document.body;
+
+      if (hour >= 6 && hour < 12) {
+        // Утро
+        body.style.background = "linear-gradient(to right, #ffecd2, #fcb69f)";
+      } else if (hour >= 12 && hour < 18) {
+        // День
+        body.style.background = "linear-gradient(to right, #dce35b, #45b649)";
+      } else if (hour >= 18 && hour < 22) {
+        // Закат
+        body.style.background = "linear-gradient(to right, #ee9ca7, #ffdde1)";
+      } else {
+        // Ночь
+        body.style.background = "linear-gradient(to right, #141e30, #243b55)";
+      }
+    }
+
+    window.onload = setBackgroundByTime;
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>Fotoshop — Профессиональное Редактирование Фото</h1>
+</header>
+
+<div class="container">
+  <h2>📦 Базовый пакет</h2>
+  <ul>
+    <li>Удалить фон</li>
+    <li>Размыть фон</li>
+    <li>Удалить пятна на лице</li>
+    <li>Отбелить зубы</li>
+    <li>Выровнять зубы</li>
+    <li>Сделать из чёрно-белой фотографии цветную</li>
+    <li>Вставить изображение</li>
+    <li>Исправить изображение</li>
+    <li>Простая ИИ-ретушь</li>
+    <li>Изменить яркость кожи</li>
+    <li>Удалить акне</li>
+    <li>Изменение размера талии, бёдер, ног, рук</li>
+  </ul>
+  <a href="#order-form" class="order-button">Заказать базовый</a>
+
+  <h2>📦 Стандартный пакет</h2>
+  <ul>
+    <li>Всё из базового</li>
+    <li>Сгенерировать новый фон</li>
+    <li>Продлить фотографию</li>
+    <li>Клонировать объект</li>
+    <li>Изменить размер и положение головы</li>
+    <li>Уменьшить/увеличить высоту шеи</li>
+    <li>Изменить тон кожи</li>
+    <li>Удалить морщины</li>
+    <li>Настроить яркость деталей</li>
+    <li>Нанести пудру</li>
+    <li>Изменить текстуру кожи</li>
+    <li>Контуринг (лоба, щёк, носа, подбородка)</li>
+    <li>Изменить глаза (размер, наклон, консилер)</li>
+    <li>Убрать эффект красных глаз</li>
+    <li>Изменить губы (размер, расположение)</li>
+    <li>Простая коррекция челюсти</li>
+    <li>Уменьшение полноты тела</li>
+    <li>Изменить грудь, бёдра, длину ног, шею</li>
+    <li>Сделать человека спортивным</li>
+  </ul>
+  <a href="#order-form" class="order-button">Заказать стандартный</a>
+
+  <h2>📦 Профессиональный пакет</h2>
+  <ul>
+    <li>Всё из стандартного</li>
+    <li>Создание изображения с помощью ИИ</li>
+    <li>Добавление ИИ-бороды</li>
+    <li>Смена одежды</li>
+    <li>Полная работа с лицом и лифтинг</li>
+    <li>Полная коррекция челюсти и подбородка</li>
+    <li>Полная работа с глазами (зрачки, расстояние, наклон)</li>
+    <li>Полная работа с носом (размер, кончик, ширина)</li>
+    <li>Полная работа с бровями (форма, расстояние, толщина)</li>
+    <li>Полная работа с кожей: текстуры, морщины, контуринг</li>
+    <li>Коррекция тела: длина ног, руки, плечи, шея</li>
+    <li>Изменить выражение лица</li>
+    <li>Профессиональная ИИ-ретушь и пластика</li>
+  </ul>
+  <a href="#order-form" class="order-button">Заказать профессиональный</a>
+
+  <form id="order-form" action="mailto:fotoshop228.822@gmail.com" method="post" enctype="text/plain">
+    <h2>📩 Оставить заявку</h2>
+    <input type="text" name="Имя" placeholder="Ваше имя" required>
+    <input type="email" name="E-mail" placeholder="Ваш e-mail" required>
+    <textarea name="Комментарий" placeholder="Что хотите изменить на фото?" rows="5" required></textarea>
+    <button type="submit">Отправить заявку</button>
+  </form>
+
+  <div class="contacts">
+    <h2>📞 Контакты</h2>
+    <p><strong>Телефон:</strong> <a href="tel:+79952219464">+7 995 221 94 64</a></p>
+    <p><strong>E-mail:</strong> <a href="mailto:fotoshop228.822@gmail.com">fotoshop228.822@gmail.com</a></p>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 Fotoshop. Все права защищены.
+</footer>
+
+</body>
+</html>
